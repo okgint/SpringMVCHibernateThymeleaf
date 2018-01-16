@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:replace="fragments/header.html :: header">
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="">
+                <a class="btn btn-primary" href="/customer/customerForm.action" style="margin-left:50%;">Add Customer</a>
+            </div>
+            <div class="table-responsive">
+
+                <table id="mytable" class="table table-bordered" style="margin:10px;width:60%;">
+                    <thead>
+                    <th>Customer Id</th>
+                    <th>Customer Name</th>
+                    <th>Country</th>
+                    <th>Created Date</th>
+                    <th>Edit</th>
+                    </thead>
+                    <tbody>
+                    <tr th:each="customer : ${customers}">
+                        <td th:text="${customer.customerId}"</td>
+                        <td th:text="${customer.customerName}"</td>
+                        <td th:text="${customer.country}"</td>
+                        <td th:text="${customer.createdDate}"</td>
+                        <td>
+                            <a class="btn btn-primary" th:href="@{'/customer/editCustomerView/'+${customer.customerId}}+'.action'">Edit</a>
+                            <a class="btn btn-warning"
+                               href="/customer/deleteCustomer/customerId=${customer.customerId}.html">Delete</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

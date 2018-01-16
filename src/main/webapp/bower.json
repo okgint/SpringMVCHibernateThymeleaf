@@ -1,0 +1,17 @@
+{
+  "name": "webapp",
+  "authors": [
+    "okgint <okta.ginting@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
